@@ -1,14 +1,12 @@
-def fibonacci_recursive(n):
-    if n <= 0:
-        return 0
-    elif n == 1:
-        return 1
-    else:
-        return fibonacci_recursive(n - 1) + fibonacci_recursive(n - 2)
+def fibonacci_iterative(n):
+    fib_series = []
+    a, b = 0, 1
+    for _ in range(n):
+        fib_series.append(a)
+        a, b = b, a + b
+    return fib_series
 
 
 n_terms = 10
 print("Fibonacci series:")
-for i in range(n_terms):
-    print(fibonacci_recursive(i), end=" ")
-print()
+print(" ".join(map(str, fibonacci_iterative(n_terms))))
